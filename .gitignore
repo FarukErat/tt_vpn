@@ -1,0 +1,8 @@
+# cache
+__pycache__
+
+# virtualenv
+.venv
+
+# temp files
+auth_code*
