@@ -22,13 +22,11 @@ Loop {
     Loop {
         if (FileExist(file_path)) {
             auth_code := FileRead(file_path)
-            if (auth_code != "") {
-                FileDelete(file_path)
-                WinActivate(sms_window)
-                Send(auth_code)
-                Send("{Enter}")
-                break
-            }
+            FileDelete(file_path)
+            WinActivate(sms_window)
+            Send(auth_code)
+            Send("{Enter}")
+            break
         }
         Sleep(1000)
     }
