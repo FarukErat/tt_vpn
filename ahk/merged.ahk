@@ -11,13 +11,15 @@ file_path := "auth_code.txt"
 Run(ivanti_exe)
 
 
-WinWaitActivate(ivanti_homepage)
+WinWait(ivanti_homepage)
+WinActivate(ivanti_homepage)
 Click(262, 135) ; relative coordinate of connect button
 
 
 forward_auth_code() {
     global file_path, sms_window
-    WinWaitActivate(sms_window)
+    WinWait(sms_window)
+    WinActivate(sms_window)
 
     Loop {
         auth_code := FileRead(file_path)
