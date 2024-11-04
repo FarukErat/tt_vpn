@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 
 SECRET = "super_secret"
+AUTH_CODE_FILEPATH = "auth_code.txt"
 
 app = FastAPI()
 
@@ -21,7 +22,7 @@ def receive_auth_code(request: AuthCodeRequest):
             "message": "Invalid secret"
         }
 
-    with open("auth_code.txt", "w") as file:
+    with open(AUTH_CODE_FILEPATH, "w") as file:
         file.write(request.code)
 
     return {
