@@ -15,26 +15,25 @@ WinWaitActivate(ivanti_homepage)
 Click(262, 135) ; relative coordinate of connect button
 
 
-read_auth_code:
+readAndSendAuthCode() {
+    global file_path, sms_window
+    WinWaitActivate(sms_window)
 
-WinWaitActivate(sms_window)
-Loop
-{
-    auth_code := FileRead(file_path)
-    if (auth_code != "")
-    {
-        FileDelete(file_path)
-        break
+    Loop {
+        auth_code := FileRead(file_path)
+        if (auth_code != "") {
+            FileDelete(file_path)
+            Send(auth_code)
+            Send("{Enter}")
+            break
+        }
+        Sleep(1000)
     }
-    Sleep(1000)
+
+    WinWaitClose(sms_window)
 }
-Send(auth_code)
-Send("{Enter}")
 
 
-WinWaitClose(sms_window) ; waits for sms_window to close
-
-
-WinWait(sms_window) ; waits for sms_window to pop up
-
-Goto read_auth_code
+Loop {
+    readAndSendAuthCode()
+}
