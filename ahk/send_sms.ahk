@@ -6,8 +6,7 @@ ivanti_homepage := "Ivanti Secure Access Client"
 sms_window := "Connect to:"
 
 Run(ivanti_exe)
-WinWait(ivanti_homepage)
-WinActivate(ivanti_homepage)
+WinWaitActivate(ivanti_homepage)
 
 Click(262, 135) ; relative coordinate of connect button
 WinWait(sms_window)
