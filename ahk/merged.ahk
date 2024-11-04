@@ -16,8 +16,7 @@ WinActivate(ivanti_homepage)
 Click(262, 135) ; relative coordinate of connect button
 
 
-forward_auth_code() {
-    global file_path, sms_window
+Loop {
     WinWait(sms_window)
 
     Loop {
@@ -33,9 +32,4 @@ forward_auth_code() {
     }
 
     WinWaitClose(sms_window)
-}
-
-
-Loop {
-    forward_auth_code()
 }
