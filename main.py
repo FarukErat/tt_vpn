@@ -12,7 +12,9 @@ class AuthCodeRequest(BaseModel):
 
 @app.get("/")
 def read_root():
-    return {"message": "Hello, World!"}
+    return {
+        "message": "Hello, World!"
+    }
 
 @app.post("/auth-code")
 def receive_auth_code(request: AuthCodeRequest):
