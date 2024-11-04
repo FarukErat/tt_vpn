@@ -17,7 +17,7 @@ Click(262, 135) ; relative coordinate of connect button
 
 
 Loop {
-    WinWait(sms_window)
+    WinWait(sms_window) ; sms_window also shows up after session expiries
 
     Loop {
         auth_code := FileRead(file_path)
