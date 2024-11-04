@@ -19,12 +19,12 @@ Click(262, 135) ; relative coordinate of connect button
 forward_auth_code() {
     global file_path, sms_window
     WinWait(sms_window)
-    WinActivate(sms_window)
 
     Loop {
         auth_code := FileRead(file_path)
         if (auth_code != "") {
             FileDelete(file_path)
+            WinActivate(sms_window)
             Send(auth_code)
             Send("{Enter}")
             break
