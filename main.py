@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 
 SECRET = "super_secret"
-AUTH_CODE_FILEPATH = "auth_code.txt"
+AUTH_CODE_FILEPATH = "./ahk/auth_code.txt"
 
 app = FastAPI()
 
