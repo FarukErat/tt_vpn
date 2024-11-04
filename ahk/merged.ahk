@@ -15,7 +15,7 @@ WinWaitActivate(ivanti_homepage)
 Click(262, 135) ; relative coordinate of connect button
 
 
-readAndSendAuthCode() {
+forward_auth_code() {
     global file_path, sms_window
     WinWaitActivate(sms_window)
 
@@ -35,5 +35,5 @@ readAndSendAuthCode() {
 
 
 Loop {
-    readAndSendAuthCode()
+    forward_auth_code()
 }
