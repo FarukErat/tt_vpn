@@ -6,3 +6,5 @@ __pycache__
 
 # temp files
 auth_code*
+*.crt
+*.key
