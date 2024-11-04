@@ -20,13 +20,15 @@ Loop {
     WinWait(sms_window) ; sms_window also shows up after session expiries
 
     Loop {
-        auth_code := FileRead(file_path)
-        if (auth_code != "") {
-            FileDelete(file_path)
-            WinActivate(sms_window)
-            Send(auth_code)
-            Send("{Enter}")
-            break
+        if (FileExist(file_path)) {
+            auth_code := FileRead(file_path)
+            if (auth_code != "") {
+                FileDelete(file_path)
+                WinActivate(sms_window)
+                Send(auth_code)
+                Send("{Enter}")
+                break
+            }
         }
         Sleep(1000)
     }
