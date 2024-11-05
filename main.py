@@ -1,3 +1,4 @@
+import re
 from fastapi import FastAPI
 from pydantic import BaseModel
 
@@ -7,7 +8,7 @@ AUTH_CODE_FILEPATH = "./ahk/auth_code.txt"
 app = FastAPI()
 
 class AuthCodeRequest(BaseModel):
-    code: str
+    sms: str
     secret: str
 
 @app.get("/")
@@ -24,8 +25,10 @@ def receive_auth_code(request: AuthCodeRequest):
             "message": "Invalid secret"
         }
 
+    auth_code = re.search(r'\b\d+\b', request.sms).group()
+
     with open(AUTH_CODE_FILEPATH, "w") as file:
-        file.write(request.code)
+        file.write(auth_code)
 
     return {
         "status": "Success",
