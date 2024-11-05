@@ -5,11 +5,11 @@ from pydantic import BaseModel
 SECRET = "super_secret"
 AUTH_CODE_FILEPATH = "./ahk/auth_code.txt"
 
-app = FastAPI()
-
 class AuthCodeRequest(BaseModel):
     sms: str
     secret: str
+
+app = FastAPI()
 
 @app.get("/")
 def read_root():
