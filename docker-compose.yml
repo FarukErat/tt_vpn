@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  tt_vpn:
+    container_name: tt_vpn
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8421:8421"
+    restart: always
