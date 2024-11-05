@@ -12,6 +12,8 @@ COPY server.crt /app/server.crt
 
 COPY server.key /app/server.key
 
+RUN mkdir /app/ahk
+
 EXPOSE 8421
 
 CMD ["gunicorn", "-w", "4", "-k", "uvicorn.workers.UvicornWorker", "main:app", "-b", "0.0.0.0:8421", "--certfile=server.crt", "--keyfile=server.key"]
