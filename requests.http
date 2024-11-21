@@ -11,6 +11,6 @@ POST {{base_url}}/auth-code
 Content-Type: application/json
 
 {
-  "code": "123456",
+  "sms": "123456",
   "secret": "super_secret"
 }
